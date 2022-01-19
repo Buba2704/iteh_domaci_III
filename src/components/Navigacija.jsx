@@ -25,7 +25,7 @@ function Navigacija(props) {
                                 <Link className="nav-link active" aria-current="page" to="/">Početna</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/pozajmica">Pozajmica</Link>
+                                <Link className="nav-link active" to="/pozajmica">Pozajmica</Link>
                             </li>
 
                         </ul>
