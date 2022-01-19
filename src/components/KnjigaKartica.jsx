@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
-function KnjigaKartica({knjiga}) {
+function KnjigaKartica({knjiga,dodajNaListu,ukloniSaListe,prikaziKnjigu,korpa}) {
+const stil={marginRight:10+'px',}
+
     return (
             <div className="col">
                 <div className="card">
@@ -11,9 +13,19 @@ function KnjigaKartica({knjiga}) {
                         <div className="col-7 col-sm-8">
                             <div className="card-body">
                                 <h5 className="card-title">{knjiga.naslov}</h5>
-                                <h6 className="card-title">{knjiga.pisac}</h6>
-                                <p className="card-text">{knjiga.opis}</p>
-                                <button className='btn btn-primary' type='button'>Dodaj na listu</button>
+                                <h6 className="card-title">{knjiga.zanr}</h6>
+                                <p className="card-title">{knjiga.pisac}</p>
+                                {korpa===0?(knjiga.pozajmica===0?(
+                                            <><button className='btn btn-primary btn-sm' onClick={()=>dodajNaListu(knjiga.id)} style={stil} >Dodaj na listu</button>
+                                                <button className='btn btn-success btn-sm' onClick={()=>prikaziKnjigu(knjiga)} style={stil} >Detaljnije</button></>
+                                        ):(
+                                           <> <button className='btn btn-primary btn-sm' onClick={()=>ukloniSaListe(knjiga.id)} style={stil} >Ukloni</button>
+                                               <button className='btn btn-success btn-sm' onClick={()=>prikaziKnjigu(knjiga)} style={stil} >Detaljnije</button></>
+                                        )
+
+                                    )
+                                   :
+                                    (null)}
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {ImBooks} from "react-icons/im";
 
-function Navigacija(props) {
+function Navigacija({brojKnjiga,pronadjiKnjige}) {
     const stilNaslov={textAlign:'center'};
     return (
         <div>
@@ -25,13 +26,16 @@ function Navigacija(props) {
                                 <Link className="nav-link active" aria-current="page" to="/">Početna</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" to="/pozajmica">Pozajmica</Link>
+                                <Link className="nav-link active" to="/pozajmica">Pozajmice</Link>
+
+                            </li>
+                            <li>
+                                <p><ImBooks size={30}/> Broj knjiga za pozajmicu: {brojKnjiga} </p>
                             </li>
 
                         </ul>
                         <form className="d-flex">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                                <button className="btn btn-outline-primary" type="submit">Search</button>
+                            <input className="form-control me-2" type="search" placeholder="Search" onInput={pronadjiKnjige} />
                         </form>
                     </div>
                 </div>
