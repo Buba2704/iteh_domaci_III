@@ -13,16 +13,19 @@ function Pocetna({knjige,dodajNaListu,ukloniSaListe,setKnjigaStrana}) {
     }
 
     return (
-        <div className="row row-cols-1 row-cols-sm-2 g-3">
-            {knjige.map((knjiga)=>(
-             <KnjigaKartica key={knjiga.id}
-                            knjiga={knjiga}
-                            dodajNaListu={dodajNaListu}
-                            prikaziKnjigu={prikaziKnjigu}
-                            ukloniSaListe={ukloniSaListe}
-                            korpa={0}/>
-            ))}
-        </div>
+       <>
+           <h3>Sve knjige</h3>
+           <div className="row row-cols-1 row-cols-sm-2 g-3">
+               {knjige.map((knjiga)=>(
+                   <KnjigaKartica key={knjiga.id}
+                                  knjiga={knjiga}
+                                  dodajNaListu={dodajNaListu}
+                                  prikaziKnjigu={prikaziKnjigu}
+                                  ukloniSaListe={ukloniSaListe}
+                                  korpa={0}/>
+               ))}
+           </div>
+       </>
     );
 }
 
