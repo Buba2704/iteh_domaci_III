@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import DugmeKartice from './DugmeKartice';
 
 function KnjigaKartica({knjiga,dodajNaListu,ukloniSaListe,prikaziKnjigu,korpa}) {
 const stil={marginRight:10+'px',}
@@ -16,11 +17,14 @@ const stil={marginRight:10+'px',}
                                 <h6 className="card-title">{knjiga.zanr}</h6>
                                 <p className="card-title">{knjiga.pisac}</p>
                                 {korpa===0?(knjiga.pozajmica===0?(
-                                            <><button className='btn btn-primary btn-sm' onClick={()=>dodajNaListu(knjiga.id)} style={stil} >Dodaj na listu</button>
-                                                <button className='btn btn-success btn-sm' onClick={()=>prikaziKnjigu(knjiga)} style={stil} >Detaljnije</button></>
+                                            <><DugmeKartice klasName={'btn btn-primary btn-sm'} tekstDugmeta={"Dodaj na listu"} funkcija={dodajNaListu} parametarFunkcije={knjiga.id} stil={stil} />
+                                            <DugmeKartice klasName={'btn btn-success btn-sm'} tekstDugmeta={"Detaljnije"} funkcija={prikaziKnjigu} parametarFunkcije={knjiga} stil={stil} />
+
+                                            </>
                                         ):(
-                                           <> <button className='btn btn-primary btn-sm' onClick={()=>ukloniSaListe(knjiga.id)} style={stil} >Ukloni</button>
-                                               <button className='btn btn-success btn-sm' onClick={()=>prikaziKnjigu(knjiga)} style={stil} >Detaljnije</button></>
+                                           <><DugmeKartice klasName={'btn btn-primary btn-sm'} tekstDugmeta={"Ukloni"} funkcija={ukloniSaListe} parametarFunkcije={knjiga.id} stil={stil} />
+                                              <DugmeKartice klasName={'btn btn-success btn-sm'} tekstDugmeta={"Detaljnije"} funkcija={prikaziKnjigu} parametarFunkcije={knjiga} stil={stil} />
+                                              </>
                                         )
 
                                     )
